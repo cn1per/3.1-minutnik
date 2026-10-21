@@ -62,6 +62,16 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
+            <StackPanel Spacing="8">
+    <TextBlock Text="Historia ukończonych cykli:"
+               Foreground="#A9B2C3"
+               FontSize="16" />
+
+    <ListBox x:Name="HistoryList"
+             Height="100"
+             Background="#1F2937"
+             Foreground="#FFFFFF" />
+</StackPanel>
 
             <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
                 <StackPanel Grid.Column="0" Spacing="8">

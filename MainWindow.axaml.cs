@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Threading;
@@ -13,6 +14,8 @@ public partial class MainWindow : Window
     private int _completedCycles;
     private bool _isBreak;
     private bool _isRunning;
+
+    private readonly List<string> _history = new();
 
     public MainWindow()
     {
@@ -55,6 +58,8 @@ public partial class MainWindow : Window
         _isRunning = false;
         _isBreak = false;
         _completedCycles = 0;
+        _history.Clear();
+        HistoryList.ItemsSource = _history.ToArray();
         _remaining = GetWorkDuration();
         UpdateDisplay();
     }
@@ -76,14 +81,17 @@ public partial class MainWindow : Window
         while (_isRunning && _deadline <= now)
         {
             if (_isBreak)
-            {
-                _isBreak = false;
-                _completedCycles++;
-            }
+        {
+        _isBreak = false;
+        _completedCycles++;
+
+        _history.Add($"{DateTime.Now:HH:mm} - cykl {_completedCycles}");
+         HistoryList.ItemsSource = _history.ToArray();
+        }
             else
-            {
-                _isBreak = true;
-            }
+        {
+        _isBreak = true;
+        }
 
             _deadline += GetCurrentDuration();
         }
@@ -123,4 +131,5 @@ public partial class MainWindow : Window
         WorkDurationInput.IsEnabled = !_isRunning;
         BreakDurationInput.IsEnabled = !_isRunning;
     }
+    
 }
