@@ -2,8 +2,111 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d"
         x:Class="minutnik.MainWindow"
-        Title="minutnik">
-    Welcome to Avalonia!
+        Title="Minutnik Pomodoro"
+        Width="520"
+        Height="560"
+        MinWidth="440"
+        MinHeight="500"
+        WindowStartupLocation="CenterScreen">
+    <Window.Styles>
+        <Style Selector="TextBlock.caption">
+            <Setter Property="Foreground" Value="#A9B2C3" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Padding" Value="22,12" />
+            <Setter Property="CornerRadius" Value="10" />
+        </Style>
+    </Window.Styles>
+
+    <Border Background="#111827" Padding="32">
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Spacing="22"
+                    MaxWidth="400">
+            <TextBlock Text="MINUTNIK POMODORO"
+                       Foreground="#F4F6FA"
+                       FontSize="22"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center" />
+
+            <Border Background="#1F2937" CornerRadius="18" Padding="28,24">
+                <StackPanel Spacing="8">
+                    <TextBlock x:Name="PhaseText"
+                               Text="Czas pracy"
+                               Foreground="#9FE3C2"
+                               FontSize="18"
+                               HorizontalAlignment="Center" />
+                    <TextBlock x:Name="TimeText"
+                               Text="25:00"
+                               Foreground="#FFFFFF"
+                               FontSize="72"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center" />
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Spacing="8">
+                        <TextBlock Text="Ukończone cykle:"
+                                   Foreground="#A9B2C3"
+                                   FontSize="16"
+                                   VerticalAlignment="Center" />
+                        <TextBlock x:Name="CycleCountText"
+                                   Text="0"
+                                   Foreground="#FFFFFF"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   VerticalAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+                <StackPanel Grid.Column="0" Spacing="8">
+                    <TextBlock Text="Praca (min)"
+                               Classes="caption"
+                               HorizontalAlignment="Center" />
+                    <NumericUpDown x:Name="WorkDurationInput"
+                                   Minimum="1"
+                                   Maximum="180"
+                                   Value="25"
+                                   FormatString="0"
+                                   Increment="1"
+                                   TextAlignment="Center" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Spacing="8">
+                    <TextBlock Text="Przerwa (min)"
+                               Classes="caption"
+                               HorizontalAlignment="Center" />
+                    <NumericUpDown x:Name="BreakDurationInput"
+                                   Minimum="1"
+                                   Maximum="180"
+                                   Value="5"
+                                   FormatString="0"
+                                   Increment="1"
+                                   TextAlignment="Center" />
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Spacing="12">
+                <Button x:Name="StartPauseButton"
+                        Content="Start"
+                        Click="OnStartPauseClick"
+                        Background="#43B581"
+                        Foreground="#10251B" />
+                <Button Content="Reset"
+                        Click="OnResetClick" />
+            </StackPanel>
+
+            <TextBlock Text="Po pracy minutnik automatycznie rozpocznie przerwę."
+                       Classes="caption"
+                       TextWrapping="Wrap"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center" />
+        </StackPanel>
+    </Border>
 </Window>
