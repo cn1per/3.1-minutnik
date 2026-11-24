@@ -2,13 +2,15 @@
 
 ## 1. Co robi
 
-1. Program pozwala odliczać czas pracy.
-2. Program pozwala rozpoczynać i zatrzymywać odliczanie.
-3. Program pozwala wstrzymywać i wznawiać minutnik.
-4. Program pozwala resetować aktualne odliczanie.
-5. Program automatycznie przechodzi między czasem pracy i przerwy.
-6. Program zlicza ukończone cykle.
-7. Program pokazuje historię ukończonych cykli.
+1. Program umożliwia odliczanie czasu pracy, domyślnie 25 minut.
+2. Program umożliwia odliczanie czasu przerwy, domyślnie 5 minut.
+3. Użytkownik może zmieniać długość pracy i przerwy w oknie aplikacji.
+4. Program posiada jeden przycisk Start/Pauza oraz drugi przycisk Reset.
+5. Program wyświetla liczbę ukończonych cykli.
+6. Po zakończeniu czasu pracy program automatycznie rozpoczyna przerwę.
+7. Pozostały czas jest wyświetlany w formacie mm:ss.
+8. Interfejs aplikacji jest w języku polskim.
+9. Program umożliwia przeglądanie historii ukończonych cykli.
 
 ## 2. Czego nie robi
 
@@ -29,6 +31,10 @@
 ## 4. Do ustalenia
 
 - Czy historia cykli powinna być zapisywana po zamknięciu aplikacji?
-- Czy użytkownik powinien móc samodzielnie zmieniać długość pracy i przerwy?
 - Czy aplikacja powinna automatycznie rozpoczynać kolejny cykl po przerwie?
 - Czy powinny pojawiać się powiadomienia dźwiękowe po zakończeniu odliczania?
+
+## 5. Zasady techniczne
+
+- Nazwy klas, metod i zmiennych w kodzie są w języku angielskim.
+- Program nie korzysta z żadnych dodatkowych bibliotek.
