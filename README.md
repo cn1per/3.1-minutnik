@@ -23,3 +23,11 @@ Po wpisaniu 25.5: pole może przyjąć wartość dziesiętną zależnie od ustaw
 Historia cykli
 
 Historia ukończonych cykli została dodana samodzielnie, bez użycia agenta AI. Każdy ukończony cykl zapisuje godzinę zakończenia oraz numer cyklu.
+
+## Analiza działania licznika cykli
+
+Licznik ukończonych cykli zwiększa się dopiero po zakończeniu przerwy. Po zakończeniu czasu pracy minutnik automatycznie przechodzi do przerwy, ale licznik pozostaje bez zmian.
+
+Podczas przerwy licznik nie jest zerowany. Zwiększa się dopiero wtedy, gdy przerwa dobiegnie końca i rozpocznie się kolejny cykl pracy.
+
+Licznik oraz historia cykli są zerowane po kliknięciu przycisku Reset.
